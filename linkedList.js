@@ -15,10 +15,6 @@ var head = null;
 
     let currentNode = head;
 
-    //if head is null, then tail is head
-
-    //if head is not null, then find the node that has .next null
-
     while (currentNode !== null) {
       if (currentNode.next !== null) {
         currentNode = currentNode.next;
@@ -38,28 +34,42 @@ var head = null;
       next: null
     };
 
-    let tail = newNode;
+    let tail = getTail();
 
     if (head === null) {
       head = newNode;
     }
+    else if (head === tail) {
+      head.next = newNode;
+    }
+    else if (tail.next === null) {
+      tail.next = newNode;
+    }
 
-
-
-    // else if (newNode.next === null) {
-    //   newNode.next = newNode;
-    // }
+    console.log(head.next, 'head')
 
     return newNode;
   }
 
-  //each time add fires,
-  //get the previous newNode.next
-      //if newNode.next === null, then
-      //change newNode.next to newNode Value
-  //change the previous newNode.next to newNode's new Value
 
   function get(Number){
+
+    //there's no head.value
+    console.log(head, 'head')
+    console.log(head.value, 'headvalue')
+
+    if (head.value === Number) {
+      return head;
+    }
+
+
+    //start at the head node
+    //check if value matches Number
+      //if found return that node
+      //if not found, move to the next node via current node's .next property
+    //Repeat until .next is null(tail/end of list)
+
+
 
   }
 
