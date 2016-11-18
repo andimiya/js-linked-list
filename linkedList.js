@@ -7,49 +7,60 @@ function linkedListGenerator(){
 
 var head = null;
 
-
-var ll = {
-  //head
-  data: 1,
-  next: {
-    //newNode
-    data: 2,
-    next: {
-      //tail
-      data: 3,
-      next: null    }
-  }
-};
-
-console.log(ll.data.next, 'nextdata')
-
   function getHead() {
-
     return head;
   }
 
   function getTail() {
-    var currentNode = head;
-    console.log(currentNode, 'currentNode');
+
+    let currentNode = head;
+
+    //if head is null, then tail is head
+
+    //if head is not null, then find the node that has .next null
+
+    while (currentNode !== null) {
+      if (currentNode.next !== null) {
+        currentNode = currentNode.next;
+      }
+      else {
+        return currentNode;
+      }
+    }
     return currentNode;
+    console.log(currentNode, 'currentNode')
   }
 
-  function add(head, newNode) {
+  function add(newValue) {
 
-    newNode = {
-      data: 12,
-      next: getTail.currentNode
+    let newNode = {
+      value: newValue,
+      next: null
+    };
+
+    let tail = newNode;
+
+    if (head === null) {
+      head = newNode;
     }
 
-    //get the head node
-    //add a newNode after the head node
-    newNode.next = head.next;
-    head.next = newNode;
+
+
+    // else if (newNode.next === null) {
+    //   newNode.next = newNode;
+    // }
 
     return newNode;
   }
 
+  //each time add fires,
+  //get the previous newNode.next
+      //if newNode.next === null, then
+      //change newNode.next to newNode Value
+  //change the previous newNode.next to newNode's new Value
+
   function get(Number){
+
   }
 
   function remove(Number) {
@@ -70,7 +81,12 @@ console.log(ll.data.next, 'nextdata')
 
 }
 
+
 var ll = linkedListGenerator();
+console.log(ll.add(12));
+console.log(ll.add(13));
+console.log(ll.add(14));
+
 // ll.add('kitten');
 // ll.add('puppy')
 // ll.add('lamb')
