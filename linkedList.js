@@ -5,24 +5,48 @@
  */
 function linkedListGenerator(){
 
-  var head = null;
+var head = null;
+
+
+var ll = {
+  //head
+  data: 1,
+  next: {
+    //newNode
+    data: 2,
+    next: {
+      //tail
+      data: 3,
+      next: null    }
+  }
+};
+
+console.log(ll.data.next, 'nextdata')
 
   function getHead() {
+
     return head;
   }
 
   function getTail() {
     var currentNode = head;
+    console.log(currentNode, 'currentNode');
     return currentNode;
   }
 
-  function add(Value) {
-    //create a
-    // var head =
-    // var newNodeA = {
-    //   value: Value,
-    //   next: null
-    // };
+  function add(head, newNode) {
+
+    newNode = {
+      data: 12,
+      next: getTail.currentNode
+    }
+
+    //get the head node
+    //add a newNode after the head node
+    newNode.next = head.next;
+    head.next = newNode;
+
+    return newNode;
   }
 
   function get(Number){
