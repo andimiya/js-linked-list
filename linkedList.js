@@ -28,13 +28,11 @@ var head = null;
   }
 
   function add(newValue) {
-
+    let tail = getTail();
     let newNode = {
       value: newValue,
       next: null
     };
-
-    let tail = getTail();
 
     if (head === null) {
       head = newNode;
@@ -48,20 +46,21 @@ var head = null;
 
     console.log(head.next, 'head')
 
+
     return newNode;
   }
 
 
   function get(Number){
+    let currentNode = head;
 
-    //there's no head.value
-    console.log(head, 'head')
-    console.log(head.value, 'headvalue')
-
-    if (head.value === Number) {
-      return head;
+    for (var i = 0; i < Number; i++) {
+      currentNode = currentNode.next;
+      if (currentNode === null) {
+        return false;
+      }
     }
-
+    return currentNode;
 
     //start at the head node
     //check if value matches Number
@@ -96,7 +95,7 @@ var ll = linkedListGenerator();
 console.log(ll.add(12));
 console.log(ll.add(13));
 console.log(ll.add(14));
-
+console.log(ll.get(2));
 // ll.add('kitten');
 // ll.add('puppy')
 // ll.add('lamb')
