@@ -24,7 +24,7 @@ var head = null;
       }
     }
     return currentNode;
-    console.log(currentNode, 'currentNode')
+    // console.log(currentNode, 'currentNode')
   }
 
   function add(newValue) {
@@ -44,7 +44,7 @@ var head = null;
       tail.next = newNode;
     }
 
-    console.log(head.next, 'head')
+    // console.log(head.next, 'head')
 
 
     return newNode;
@@ -67,12 +67,33 @@ var head = null;
       //if found return that node
       //if not found, move to the next node via current node's .next property
     //Repeat until .next is null(tail/end of list)
-
-
-
   }
 
   function remove(Number) {
+    let previousNode = get(Number-1);
+    let currentNode = get(Number);
+    let nextNode = currentNode.next;
+
+    console.log(currentNode, 'getNumber');
+
+    if (head === null) {
+      return false;
+    }
+
+    if (currentNode === false) {
+      return false;
+    }
+
+    if (Number === 0) {
+      head = head.next;
+      console.log(head, 'head');
+      console.log(head.next, 'headNext');
+    }
+    else {
+      previousNode.next = nextNode;
+
+    }
+
   }
 
   function insert(Value, Number) {
@@ -92,9 +113,10 @@ var head = null;
 
 
 var ll = linkedListGenerator();
-console.log(ll.add(12));
-console.log(ll.add(13));
-console.log(ll.add(14));
+console.log(ll.add('cat1'));
+console.log(ll.add('cat2'));
+console.log(ll.add('cat3'));
+console.log(ll.add('cat4'));
 console.log(ll.get(2));
 // ll.add('kitten');
 // ll.add('puppy')
