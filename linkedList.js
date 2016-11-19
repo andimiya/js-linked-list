@@ -1,15 +1,18 @@
 function linkedListGenerator(){
 
-  function getHead() {
+  let head = null;
 
+  function getHead() {
+    return head;
   }
 
   function getTail() {
-
+    return head;
   }
 
   function add() {
 
+    return newNode;
   }
 
   function remove() {
