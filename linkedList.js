@@ -7,10 +7,32 @@ function linkedListGenerator(){
   }
 
   function getTail() {
-    return head;
+    let currentNode = head;
+
+    while (curentNode !== null){
+      if (currentNode.next !== null) {
+        currentNode = currentNode.next;
+      }
+      else {
+        return currentNode;
+      }
+    }
+    return currentNode;
   }
 
-  function add() {
+  function add(newValue) {
+    let newNode = {
+      value: newValue,
+      next: null
+    };
+    let tail = getTail();
+
+    if(head === null) {
+      head = newNode;
+    }
+    if(head !== null){
+
+    }
 
     return newNode;
   }
