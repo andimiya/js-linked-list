@@ -18,7 +18,6 @@ function linkedListGenerator(){
         return currentNode;
       }
     }
-
     return currentNode;
   }
 
@@ -63,7 +62,11 @@ function linkedListGenerator(){
   function get(index) {
 
     let currentNode = head;
+    let counter = 0;
 
+    while (currentNode.next !== null) {
+      counter++;
+    }
     for (var i = 0; i < index; i++) {
       currentNode = currentNode.next;
       if (currentNode === null) {
@@ -73,35 +76,26 @@ function linkedListGenerator(){
     return currentNode;
   }
 
-  function getLength() {
-    let length = 0;
-
-    while (node.next !== null) {
-      length++;
-    }
-    console.log(length, 'length');
-
-    return length;
-  }
-
   function insert(value, index) {
-    let previousNode = get(index -1);
-    let currentNode = get(index);
 
-    let newNode = {
-      value: value,
-      index: index
-    };
-
-    if (index === 0) {
-      head = newNode;
-    }
-    else if (getLength() > index) {
+    if (index < 0) {
       return false;
     }
-    else {
+    // if (getLength() < index) {
+    //   return false;
+    // }
+    else if (index === 0) {
+
+      let previousNode = get(index -1);
+
+      newNode = {
+      value: value,
+      next: null
+      };
+
       previousNode.next = newNode;
-      newNode.next = currentNode;
+      // newNode.next = currentNode;
+      // currentNode.next = nextNode;
     }
 
   }
@@ -119,8 +113,9 @@ function linkedListGenerator(){
 }
 
 var ll = linkedListGenerator();
-console.log(ll.add(1));
-console.log(ll.add(2));
-console.log(ll.add(3));
-console.log(ll.add(4));
+console.log(ll.add('one'));
+console.log(ll.add('two'));
+console.log(ll.add('three'));
+console.log(ll.add('four'));
+console.log(ll.get(2));
 
