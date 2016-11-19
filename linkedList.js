@@ -5,7 +5,7 @@
  */
 function linkedListGenerator(){
 
-var head = null;
+let head = null;
 
   function getHead() {
     return head;
@@ -96,7 +96,29 @@ var head = null;
 
   }
 
-  function insert(Value, Number) {
+  function insert(value, index) {
+    let previousNode = get(index-1);
+    let currentNode = get(index);
+
+    let newNode = {
+      value: value,
+      next: currentNode
+    };
+
+    if (index === 0) {
+      head = newNode;
+    }
+    else if (currentNode === false) {
+      return false;
+    }
+    else if (index < 0) {
+      return false;
+    }
+    else {
+      previousNode.next = newNode;
+    }
+    // currentNode = newNode.next;
+
   }
 
 
@@ -117,7 +139,7 @@ console.log(ll.add('cat1'));
 console.log(ll.add('cat2'));
 console.log(ll.add('cat3'));
 console.log(ll.add('cat4'));
-console.log(ll.get(2));
+// console.log(ll.get(2));
 // ll.add('kitten');
 // ll.add('puppy')
 // ll.add('lamb')
